@@ -1,0 +1,145 @@
+.hello {
+  color: red;
+}
+
+body {
+  height: 100vh;
+  background-color: #e6e8eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: 0 24px;
+}
+
+.headline {
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+  background-color: #0e4fb0;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.restart {
+  background-color: #0e4fb0;
+  border: none;
+  color: white;
+  font-size: 1.5vw;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+  background-color: white;
+}
+
+.form input {
+  width: 70vw;
+  border: none;
+  outline: none;
+  height: 65px;
+  font-size: 1.3vw;
+  font-style: italic;
+}
+
+.form button {
+  background-color: white;
+  border: none;
+}
+
+.btn-clear {
+  width: 70vw;
+  align-self: center;
+  background-color: #0e4fb0;
+  border: none;
+  font-size: 1.3vw;
+  color: white;
+}
+
+.btn-clear:hover {
+  color: black;
+}
+
+.button-clear-container {
+  display: flex;
+  justify-content: center;
+  background-color: #0e4fb0;
+  height: 65px;
+  border-radius: 0 0 10px 10px;
+}
+
+.list-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #adc0db;
+  padding: 0 30px 0 24px;
+}
+
+.checkbox-description-item {
+  display: flex;
+  align-items: center;
+  margin: 15px 0 7px 0;
+}
+
+.list-item-container div {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.checkbox {
+  height: 25px;
+  width: 25px;
+}
+
+.input-descrption {
+  width: 60vw;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #adc0db;
+  font-size: 1.3vw;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.menubutton {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.menubutton:hover {
+  color: white;
+}
+
+.deleteButton {
+  background-color: #adc0db;
+  margin-left: 10px;
+  border: none;
+  width: 50px;
+  height: 50px;
+}
+
+.fa-trash-can {
+  font-size: 1.3vw;
+  color: black;
+}
+
+.selected {
+  background-color: white;
+}
+
+.complete {
+  text-decoration: line-through;
+}
