@@ -73,6 +73,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
   }
 
   .summary {
@@ -87,27 +88,28 @@
   }
 
   .summary p {
-      font-size: 30px;
+      font-size: 1.5vw;
       padding: 5px;
+      display: flex;
   }
 
   .language {
-      font-size: 27px;
+      font-size: 1.5vw;
       color: white;
   }
 
   .rating {
-    font-size: 27px;
+    font-size: 1.5vw;
     color: white;
 }
 
 .runtime{
-    font-size: 27px;
+    font-size: 1.5vw;
     color: white;
 }
 
 .premiered {
-    font-size: 27px;
+    font-size: 1.5vw;
     color: white;
 }
   .movie-metadata {

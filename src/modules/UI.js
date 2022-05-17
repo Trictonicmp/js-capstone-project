@@ -58,7 +58,7 @@ const ShowPopup= async (id)=> {
   popupOpenFlag=true;
   await displayComments(id);
   const formComment = document.querySelector('#form');
-  formComment.addEventListener('click',async(e)=>{
+  formComment.addEventListener('submit',async(e)=>{
     e.preventDefault();
     const userName = document.getElementById('userName').value;
     const comment = document.getElementById('commnent').value;
@@ -69,14 +69,19 @@ const ShowPopup= async (id)=> {
 }
 
 const displayComments = async(id) =>{
-    const commnets = await getMovieComments(id);
+    const reponse = await getMovieComments(id);
     const commentListDiv = document.querySelector('.comment-list-items');
     commentListDiv.innerHTML='';
-    commnets.forEach(element => {
-        commentListDiv.innerHTML+=`
-        <div><span>${element.creation_date}</span><span> ${element.username}: ${element.comment}</span></div>
-        `;
-    });
+    if(reponse.error){
+        commentListDiv.innerHTML='Be the first to comment';
+    }else{
+        reponse.forEach(element => {
+            commentListDiv.innerHTML+=`
+            <div><span>${element.creation_date}</span><span> ${element.username}: ${element.comment}</span></div>
+            `;
+        });
+    }
+    
 }
  const enableCloseDetailsPop = ()=>{
      console.log(popupOpenFlag);
