@@ -2,10 +2,39 @@
 
 body {
   background-color: black;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 header {
+  padding: 1em;
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+header img {
+  max-width: 8em;
+}
+
+header nav ul {
+  display: flex;
+  gap: 1em;
+}
+
+header nav ul li a {
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  color: #444;
+  gap: 1em;
+  text-decoration: none;
+  outline: 2px solid #222;
+  border-radius: 2em;
+
+  transition: outline 0.1s ease-in;
+}
+
+header nav ul li a:hover {
+  outline: 2px solid #FFCC00;
+  color: #fff;
 }
