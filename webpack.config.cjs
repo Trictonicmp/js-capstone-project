@@ -11,7 +11,10 @@ module.exports = {
     assetModuleFilename: 'images/[hash][ext][query]',
   },
   devServer: {
-    static: './src',
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
