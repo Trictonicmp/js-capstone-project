@@ -128,3 +128,138 @@ footer p {
   color: #444;
   font-size: 0.8em;
 }
+
+main {
+  width: 100%;
+  padding: 1em;
+}
+
+.shows-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 4em 0;
+  margin-inline: auto;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.show {
+  outline: 3px solid #111;
+  border-radius: 0.5em;
+  max-width: 15em;
+  overflow: hidden;
+  background-color: #111;
+
+  transition: outline 0.2s ease-in;
+}
+
+.show:hover {
+  outline: 0.5em solid #111;
+}
+
+.show .like {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  width: 100%;
+  padding: 0.2em 0.4em;
+  display: flex;
+  justify-content: end;
+  margin: 0;
+  background-color: transparent;
+  background-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%, rgba(0,0,0,0) 100%);
+  border: none;
+  font-size: 1.8em;
+  color: #fff;
+  z-index: 1;
+}
+
+.show .like:hover {
+  cursor: pointer;
+}
+
+.show .like i {
+  transition: transform 0.1s ease-in;
+}
+
+.show .like:hover i {
+  transform: scale(1.2);
+}
+
+.show .like:active i {
+  transform: scale(0.9);
+}
+
+.show .like span {
+  font-size: 0.5em;
+}
+
+.show img {
+  position: relative;
+  width: 100%;
+  min-width: 10em;
+  margin-top: -2.9em;
+}
+
+.show-details {
+  width: 100%;
+  padding: 0 1em;
+  color: white;
+}
+
+.show-details h2 {
+  font-size: 1.5em;
+}
+
+.show-details ul {
+  margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+
+.show-details ul li {
+  font-size: 0.75em;
+  padding: 0.2em 0.5em;
+  border-radius: 0.3em;
+  background-color: #333;
+}
+
+.show-details .network-details {
+  margin-top: 0.5em;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 1.2em;
+}
+
+.show-details .network-details i {
+  margin-right: 0.25em;
+  color: #fc0;
+}
+
+.show-details .see-more {
+  width: 100%;
+  padding: 0.5em 0.3em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  color: #fff;
+  outline: 2px solid #222;
+  background-color: transparent;
+  border: none;
+  font-size: 0.8em;
+  border-radius: 1em;
+}
+
+.show-details .see-more:hover {
+  cursor: pointer;
+  background-color: #222;
+}
+
+
+.show-details .see-more:active {
+  background-color: #fc0;
+}
