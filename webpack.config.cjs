@@ -8,6 +8,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
   devServer: {
     static: './src',
@@ -15,6 +16,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      filename: 'index.html',
     }),
   ],
 
@@ -23,6 +25,16 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.html$/,
+        use: [
+          'html-loader',
+        ],
       },
     ],
   },
