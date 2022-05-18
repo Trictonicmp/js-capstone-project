@@ -1,46 +1,35 @@
-import { getShowsByPage, getLikes, addLikeTo, getQueriedShows } from "./API.js";
-import { getLikesOf, getOnlyShows, getCount } from "./Helpers.js";
+import {
+  getShowsByPage, getLikes, addLikeTo, getQueriedShows,
+} from './API.js';
+import { getLikesOf, getOnlyShows, getCount } from './Helpers.js';
 import noImage from '../images/no-image.svg';
 
-const createCard = (show, likesCount) => {
-  const card = document.createElement('li');
-  card.classList.add('show');
-  card.append(createLikeButton(likesCount, show.id));
-  const cardImg = document.createElement('img');
-  cardImg.alt = show.name;
-  cardImg.src = show.image? show.image.medium: noImage;
-  card.append(cardImg);
-  card.append(createshowDetails(show));
-
-  return card;
-}
-
 const createLikeButton = (likesCount, showId) => {
-  likesCount = parseInt(likesCount)? likesCount : 0;
+  likesCount = parseInt(likesCount, 10) ? likesCount : 0;
   const likeButton = document.createElement('button');
   likeButton.type = 'button';
-  likeButton.classList.add('like')
+  likeButton.classList.add('like');
   const numberOfLikes = document.createElement('span');
-  numberOfLikes.innerText = likesCount + ' likes';
+  numberOfLikes.innerText = `${likesCount} likes`;
   const likeIcon = document.createElement('i');
-  likeIcon.classList.add("fa-solid");
-  likeIcon.classList.add("fa-heart");
+  likeIcon.classList.add('fa-solid');
+  likeIcon.classList.add('fa-heart');
 
   likeButton.append(numberOfLikes);
   likeButton.append(likeIcon);
 
-  likeButton.onclick = async (event) => {
+  likeButton.onclick = async () => {
     const added = await addLikeTo(showId);
-    if(added) {
+    if (added) {
       numberOfLikes.innerHTML = '';
-      numberOfLikes.innerText = likesCount + 1 + ' likes';
-      likeIcon.classList.add("liked");
+      numberOfLikes.innerText = `${likesCount + 1} likes`;
+      likeIcon.classList.add('liked');
       likeButton.disabled = true;
     }
-  }
+  };
 
   return likeButton;
-}
+};
 
 const createshowDetails = (show) => {
   const showDetails = document.createElement('div');
@@ -49,7 +38,7 @@ const createshowDetails = (show) => {
   title.innerText = show.name;
   showDetails.append(title);
   const genresList = document.createElement('ul');
-  for(let i = 0; i < show.genres.length; i += 1) {
+  for (let i = 0; i < show.genres.length; i += 1) {
     const genre = document.createElement('li');
     genre.innerText = show.genres[i];
     genresList.append(genre);
@@ -58,21 +47,21 @@ const createshowDetails = (show) => {
 
   const networkDetails = document.createElement('div');
   networkDetails.classList.add('network-details');
-  
+
   const network = document.createElement('span');
 
-  network.innerText = (show.network)? show.network.name : 'unkown';
+  network.innerText = (show.network) ? show.network.name : 'unkown';
   const boradcastIcon = document.createElement('i');
-  boradcastIcon.classList.add("fa-solid");
-  boradcastIcon.classList.add("fa-tower-broadcast");
+  boradcastIcon.classList.add('fa-solid');
+  boradcastIcon.classList.add('fa-tower-broadcast');
   network.prepend(boradcastIcon);
 
   const country = document.createElement('span');
-  country.innerText = (show.network)? show.network.country.code : 'unkown';
+  country.innerText = (show.network) ? show.network.country.code : 'unkown';
   const worldIcon = document.createElement('i');
-  worldIcon.classList.add("fa-solid");
-  worldIcon.classList.add("fa-earth-americas");
-  country.prepend(worldIcon);  
+  worldIcon.classList.add('fa-solid');
+  worldIcon.classList.add('fa-earth-americas');
+  country.prepend(worldIcon);
 
   networkDetails.append(network);
   networkDetails.append(country);
@@ -81,42 +70,55 @@ const createshowDetails = (show) => {
   const seeMoreBtn = document.createElement('button');
   seeMoreBtn.classList.add('see-more');
   seeMoreBtn.type = 'button';
-  seeMoreBtn.innerText = 'See more'
+  seeMoreBtn.innerText = 'See more';
 
   showDetails.append(seeMoreBtn);
   return showDetails;
-}
+};
+
+const createCard = (show, likesCount) => {
+  const card = document.createElement('li');
+  card.classList.add('show');
+  card.append(createLikeButton(likesCount, show.id));
+  const cardImg = document.createElement('img');
+  cardImg.alt = show.name;
+  cardImg.src = show.image ? show.image.medium : noImage;
+  card.append(cardImg);
+  card.append(createshowDetails(show));
+
+  return card;
+};
+
+const setItemsCount = (count) => {
+  document.getElementById('items-counter').innerText = count;
+};
 
 const displayShows = async (shows) => {
   const showsContainer = document.getElementById('shows-container');
   showsContainer.innerHTML = '';
   const likesList = await getLikes();
   setItemsCount(getCount(shows));
-  for(let i = 0; i < shows.length; i += 1) {
-    let likesCount = getLikesOf(shows[i].id, likesList);
+  for (let i = 0; i < shows.length; i += 1) {
+    const likesCount = getLikesOf(shows[i].id, likesList);
     showsContainer.append(createCard(shows[i], likesCount));
   }
-}
+};
 
 const displayHome = async () => {
   const shows = await getShowsByPage(1, 30);
   displayShows(shows);
-}
+};
 
 const displayAction = async () => {
   const objectsArray = await getQueriedShows('action', 30);
   const shows = getOnlyShows(objectsArray);
   displayShows(shows);
-}
+};
 
 const displayKids = async () => {
   const objectsArray = await getQueriedShows('kids', 30);
   const shows = getOnlyShows(objectsArray);
   displayShows(shows);
-}
+};
 
-const setItemsCount = (count) => {
-  document.getElementById('items-counter').innerText = count;
-}
-
-export { displayHome, displayAction, displayKids}
+export { displayHome, displayAction, displayKids };

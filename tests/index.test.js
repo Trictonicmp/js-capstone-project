@@ -1,5 +1,5 @@
-import { describe, expect } from "@jest/globals";
-import { getCount } from "../src/modules/Helpers.js";
+import { describe, expect } from '@jest/globals';
+import { getCount } from '../src/modules/Helpers.js';
 
 describe('Cont the number of shows', () => {
   const shows = [

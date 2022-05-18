@@ -44,20 +44,19 @@ const getShowsByPage = async (pageNumber, showsQuantity) => {
 
 const getQueriedShows = async (query, showsQuantity) => {
   const returnShows = [];
-  try{
+  try {
     const response = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`);
     const shows = await response.json();
-    showsQuantity = (shows.length < showsQuantity)? shows.length : showsQuantity;
+    showsQuantity = (shows.length < showsQuantity) ? shows.length : showsQuantity;
     for (let i = 0; i < showsQuantity; i += 1) {
       returnShows.push(shows[i]);
     }
-  }
-  catch(error) {
+  } catch (error) {
     console.log(error);
   }
 
   return returnShows;
-}
+};
 
 const getLikes = async () => {
   const response = await fetch(`${endPoint}/${APP_ID}/likes/`);
@@ -81,5 +80,5 @@ const addLikeTo = async (itemId) => {
 };
 
 export {
-  getShowsByPage, getLikes, addLikeTo, getMovieById, newComment, getMovieComments, getQueriedShows
+  getShowsByPage, getLikes, addLikeTo, getMovieById, newComment, getMovieComments, getQueriedShows,
 };
