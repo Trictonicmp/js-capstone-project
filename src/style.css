@@ -1,4 +1,5 @@
 @import url(reset.css);
+@import url(animations.css);
 
 body {
   background-color: black;
@@ -266,4 +267,11 @@ main {
 
 .show-details .see-more:active {
   background-color: #fc0;
+}
+
+.liked {
+  color: #fc0;
+  animation: like;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in, ease-out;
 }
