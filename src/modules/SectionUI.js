@@ -1,5 +1,6 @@
-import { getShows, getLikes, addLikeTo } from "./API.js";
-import { getLikedOf as getLikesOf } from "./Helpers.js";
+import { getShowsByPage, getLikes, addLikeTo, getQueriedShows } from "./API.js";
+import { getLikesOf } from "./Helpers.js";
+import noImage from '../images/no-image.svg';
 
 const createCard = (show, likesCount) => {
   const card = document.createElement('li');
@@ -7,7 +8,7 @@ const createCard = (show, likesCount) => {
   card.append(createLikeButton(likesCount, show.id));
   const cardImg = document.createElement('img');
   cardImg.alt = show.name;
-  cardImg.src = show.image.medium;
+  cardImg.src = show.image? show.image.medium: noImage;
   card.append(cardImg);
   card.append(createshowDetails(show));
 
@@ -87,10 +88,10 @@ const createshowDetails = (show) => {
   return showDetails;
 }
 
-const displayShows = async () => {
+const displayShows = async (shows) => {
   const showsContainer = document.getElementById('shows-container');
+  showsContainer.innerHTML = '';
   const likesList = await getLikes();
-  const shows = await getShows(1, 30);
   setItemsCount(shows.length);
   for(let i = 0; i < shows.length; i += 1) {
     let likesCount = getLikesOf(shows[i].id, likesList);
@@ -98,8 +99,34 @@ const displayShows = async () => {
   }
 }
 
+const displayHome = async () => {
+  const shows = await getShowsByPage(1, 30);
+  displayShows(shows);
+}
+
+const displayAction = async () => {
+  const objectsArray = await getQueriedShows('action', 30);
+  const shows = getOnlyShows(objectsArray);
+  displayShows(shows);
+}
+
+const displayKids = async () => {
+  const objectsArray = await getQueriedShows('kids', 30);
+  const shows = getOnlyShows(objectsArray);
+  displayShows(shows);
+}
+
+const getOnlyShows = (objectsArray) => {
+  const shows = [];
+  objectsArray.forEach((object) => {
+    shows.push(object.show);
+  })
+
+  return shows;
+}
+
 const setItemsCount = (count) => {
   document.getElementById('items-counter').innerText = count;
 }
 
-export { displayShows }
+export { displayHome, displayAction, displayKids}

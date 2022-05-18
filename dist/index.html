@@ -7,9 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700&display=swap" rel="stylesheet"> 
+    <link rel="shortcut icon" href="images/f2f9123649926052bd5c.svg">
     <title>Wbpack Exercise</title>
 <script defer src="main.js"></script></head>
-<body>
+<body>      
+    <button type="button" id="showDetailsButton">Show Detail Popup</button>   
     <header>
         <a href="#" class="header-logo"><img src="images/377387c675672d042f7e.svg" alt="book.tv"></a> 
         <nav>
@@ -22,122 +24,8 @@
     </header>
 
     <main>
-        <ul class="shows-container">
-            <li class="show">
-                <button type="button" class="like">
-                    <span>5 Likes</span><i class="fa-solid fa-heart"></i>
-                </button>
-                <img src="https://static.tvmaze.com/uploads/images/original_untouched/51/128054.jpg">
-                <div class="show-details">
-                    <h2>Movie title</h2>
-                    <ul>
-                        <li>Comedy</li>
-                        <li>Action</li>
-                        <li>Romance</li>
-                    </ul>
-                    <div class="network-details">
-                        <span>
-                            <i class="fa-solid fa-tower-broadcast"></i></i> FOX
-                        </span>
-                        <span>
-                            <i class="fa-solid fa-earth-americas"></i> US
-                        </span>
-                    </div>
-                    <button class="see-more">See more</button>
-                </div>
-            </li>
-            <li class="show">
-                <button type="button" class="like">
-                    <span>5 Likes</span><i class="fa-solid fa-heart"></i>
-                </button>
-                <img src="https://static.tvmaze.com/uploads/images/original_untouched/51/128054.jpg">
-                <div class="show-details">
-                    <h2>Movie title</h2>
-                    <ul>
-                        <li>Comedy</li>
-                        <li>Action</li>
-                        <li>Romance</li>
-                    </ul>
-                    <div class="network-details">
-                        <span>
-                            <i class="fa-solid fa-tower-broadcast"></i></i> FOX
-                        </span>
-                        <span>
-                            <i class="fa-solid fa-earth-americas"></i> US
-                        </span>
-                    </div>
-                    <button class="see-more">See more</button>
-                </div>
-            </li>
-            <li class="show">
-                <button type="button" class="like">
-                    <span>5 Likes</span><i class="fa-solid fa-heart"></i>
-                </button>
-                <img src="https://static.tvmaze.com/uploads/images/original_untouched/51/128054.jpg">
-                <div class="show-details">
-                    <h2>Movie title</h2>
-                    <ul>
-                        <li>Comedy</li>
-                        <li>Action</li>
-                        <li>Romance</li>
-                    </ul>
-                    <div class="network-details">
-                        <span>
-                            <i class="fa-solid fa-tower-broadcast"></i></i> FOX
-                        </span>
-                        <span>
-                            <i class="fa-solid fa-earth-americas"></i> US
-                        </span>
-                    </div>
-                    <button class="see-more">See more</button>
-                </div>
-            </li>
-            <li class="show">
-                <button type="button" class="like">
-                    <span>5 Likes</span><i class="fa-solid fa-heart"></i>
-                </button>
-                <img src="https://static.tvmaze.com/uploads/images/original_untouched/51/128054.jpg">
-                <div class="show-details">
-                    <h2>Movie title</h2>
-                    <ul>
-                        <li>Comedy</li>
-                        <li>Action</li>
-                        <li>Romance</li>
-                    </ul>
-                    <div class="network-details">
-                        <span>
-                            <i class="fa-solid fa-tower-broadcast"></i></i> FOX
-                        </span>
-                        <span>
-                            <i class="fa-solid fa-earth-americas"></i> US
-                        </span>
-                    </div>
-                    <button class="see-more">See more</button>
-                </div>
-            </li>
-            <li class="show">
-                <button type="button" class="like">
-                    <span>5 Likes</span><i class="fa-solid fa-heart"></i>
-                </button>
-                <img src="https://static.tvmaze.com/uploads/images/original_untouched/51/128054.jpg">
-                <div class="show-details">
-                    <h2>Movie title</h2>
-                    <ul>
-                        <li>Comedy</li>
-                        <li>Action</li>
-                        <li>Romance</li>
-                    </ul>
-                    <div class="network-details">
-                        <span>
-                            <i class="fa-solid fa-tower-broadcast"></i></i> FOX
-                        </span>
-                        <span>
-                            <i class="fa-solid fa-earth-americas"></i> US
-                        </span>
-                    </div>
-                    <button class="see-more">See more</button>
-                </div>
-            </li>
+        <h2 class="items-counter">Items displayed: <span id="items-counter"></span></h2>
+        <ul class="shows-container" id="shows-container">
         </ul>
     </main>
 
