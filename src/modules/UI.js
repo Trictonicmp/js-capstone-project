@@ -1,12 +1,35 @@
-import {getMovieById,newComment,getMovieComments} from './API.js'
-
+import { getMovieById, newComment, getMovieComments } from './API.js';
 
 const backgroundModal = document.createElement('div');
 const modal = document.createElement('div');
 const main = document.querySelector('#main');
 let popupOpenFlag = false;
-const ShowPopup= async (id)=> {
-  
+
+const CloseModal = () => {
+  if (backgroundModal) {
+    backgroundModal.remove();
+  }
+  if (modal) {
+    modal.remove();
+  }
+};
+
+const displayComments = async (id) => {
+  const reponse = await getMovieComments(id);
+  const commentListDiv = document.querySelector('.comment-list-items');
+  commentListDiv.innerHTML = '';
+  if (reponse.error) {
+    commentListDiv.innerHTML = 'Be the first to comment';
+  } else {
+    reponse.forEach((element) => {
+      commentListDiv.innerHTML += `
+              <div><span>${element.creation_date}</span><span> ${element.username}: ${element.comment}</span></div>
+              `;
+    });
+  }
+};
+
+const ShowPopup = async (id) => {
   const movie = await getMovieById(id);
   modal.classList.add('modal-container');
   modal.innerHTML = `
@@ -55,51 +78,26 @@ const ShowPopup= async (id)=> {
   backgroundModal.classList.add('background-popup');
   main.appendChild(backgroundModal);
   backgroundModal.appendChild(modal);
-  popupOpenFlag=true;
+  popupOpenFlag = true;
   await displayComments(id);
   const formComment = document.querySelector('#form');
-  formComment.addEventListener('submit',async(e)=>{
+  formComment.addEventListener('submit', async (e) => {
     e.preventDefault();
     const userName = document.getElementById('userName').value;
     const comment = document.getElementById('commnent').value;
-    await newComment(id,userName,comment);
+    await newComment(id, userName, comment);
     formComment.reset();
     await displayComments(id);
   });
-}
+};
 
-const displayComments = async(id) =>{
-    const reponse = await getMovieComments(id);
-    const commentListDiv = document.querySelector('.comment-list-items');
-    commentListDiv.innerHTML='';
-    if(reponse.error){
-        commentListDiv.innerHTML='Be the first to comment';
-    }else{
-        reponse.forEach(element => {
-            commentListDiv.innerHTML+=`
-            <div><span>${element.creation_date}</span><span> ${element.username}: ${element.comment}</span></div>
-            `;
-        });
-    }
-    
-}
- const enableCloseDetailsPop = ()=>{
-     console.log(popupOpenFlag);
-    if (popupOpenFlag) {
-        const closeDetailsPop = document.querySelector('#closeDetailsPop');
-        closeDetailsPop.addEventListener('click', ()=>{
-            CloseModal();
-        });        
-    }
-}
-
-const CloseModal=()=> {
-  if (backgroundModal) {
-    backgroundModal.remove();
+const enableCloseDetailsPop = () => {
+  if (popupOpenFlag) {
+    const closeDetailsPop = document.querySelector('#closeDetailsPop');
+    closeDetailsPop.addEventListener('click', () => {
+      CloseModal();
+    });
   }
-  if (modal) {
-    modal.remove();
-  }
-}
+};
 
-export {ShowPopup,CloseModal,enableCloseDetailsPop}
+export { ShowPopup, CloseModal, enableCloseDetailsPop };

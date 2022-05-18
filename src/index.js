@@ -1,10 +1,9 @@
 import './style.css';
-import {ShowPopup,CloseModal,enableCloseDetailsPop} from './modules/UI.js'
+import { ShowPopup, enableCloseDetailsPop } from './modules/UI.js';
 
-const showDetailsButton= document.querySelector('#showDetailsButton');
+const showDetailsButton = document.querySelector('#showDetailsButton');
 
-showDetailsButton.addEventListener('click', async()=>{
-    await ShowPopup(6);
-    await enableCloseDetailsPop();
+showDetailsButton.addEventListener('click', async () => {
+  await ShowPopup(6);
+  await enableCloseDetailsPop();
 });
-
