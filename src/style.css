@@ -221,6 +221,7 @@ main {
 }
 
 .show-details h2 {
+  width: 100%;
   font-size: 1.5em;
 }
 

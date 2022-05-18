@@ -22,7 +22,7 @@ const createLikeButton = (likesCount) => {
   const likeIcon = document.createElement('i');
   likeIcon.classList.add("fa-solid");
   likeIcon.classList.add("fa-heart");
-  likeIcon.classList.add("liked");
+  //likeIcon.classList.add("liked");
 
   likeButton.append(numberOfLikes);
   likeButton.append(likeIcon);
