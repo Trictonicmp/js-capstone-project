@@ -163,7 +163,7 @@ main .items-counter {
 main .items-counter span {
   padding: 0.5em;
   margin-left: 0.5em;
-  color: #000;
+  color: #fff;
   background-color: #222;
   border-radius: 1em;
 }
