@@ -1,3 +1,4 @@
+const endPoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 const APP_ID = 'tRB9LWQF3akOeweiTUr4';
 
 const getShows = async (pageNumber, showsQuantity) => {
@@ -14,4 +15,10 @@ const getShows = async (pageNumber, showsQuantity) => {
   }
 }
 
-export { getShows };
+const getLikes = async () => {
+  const response = await fetch(`${endPoint}/${APP_ID}/likes/`)
+  const likesList = await response.json();
+  return likesList;
+}
+
+export { getShows, getLikes };

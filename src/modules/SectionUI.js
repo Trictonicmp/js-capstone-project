@@ -1,4 +1,5 @@
-import { getShows } from "./API.js";
+import { getShows, getLikes } from "./API.js";
+import { getLikedOf } from "./Helpers.js";
 
 const createCard = (show, likesCount) => {
   const card = document.createElement('li');
@@ -14,6 +15,7 @@ const createCard = (show, likesCount) => {
 }
 
 const createLikeButton = (likesCount) => {
+  likesCount = parseInt(likesCount)? likesCount : 0;
   const likeButton = document.createElement('button');
   likeButton.type = 'button';
   likeButton.classList.add('like')
@@ -77,9 +79,11 @@ const createshowDetails = (show) => {
 
 const displayShows = async () => {
   const showsContainer = document.getElementById('shows-container');
+  const likesList = await getLikes();
   const shows = await getShows(1, 30);
   for(let i = 0; i < shows.length; i += 1) {
-    showsContainer.append(createCard(shows[i], 3));
+    let likesCount = getLikedOf(shows[i].id, likesList);
+    showsContainer.append(createCard(shows[i], likesCount));
   }
 }
 
