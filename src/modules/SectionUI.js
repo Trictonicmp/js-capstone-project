@@ -3,6 +3,7 @@ import {
 } from './API.js';
 import { getLikesOf, getOnlyShows, getCount } from './Helpers.js';
 import noImage from '../images/no-image.svg';
+import { ShowPopup, enableCloseDetailsPop } from './UI.js';
 
 const createLikeButton = (likesCount, showId) => {
   likesCount = parseInt(likesCount, 10) ? likesCount : 0;
@@ -71,6 +72,11 @@ const createshowDetails = (show) => {
   seeMoreBtn.classList.add('see-more');
   seeMoreBtn.type = 'button';
   seeMoreBtn.innerText = 'See more';
+
+  seeMoreBtn.onclick = async () => {
+    await ShowPopup(show.id);
+    await enableCloseDetailsPop();
+  }
 
   showDetails.append(seeMoreBtn);
   return showDetails;
