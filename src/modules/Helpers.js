@@ -6,4 +6,17 @@ const getLikesOf = (itemId, likesList) => {
   }
 }
 
-export { getLikesOf }
+const getOnlyShows = (objectsArray) => {
+  const shows = [];
+  objectsArray.forEach((object) => {
+    shows.push(object.show);
+  })
+
+  return shows;
+}
+
+const getCount = (listOfElements) => {
+  return listOfElements.length;
+} 
+
+export { getLikesOf, getOnlyShows, getCount }

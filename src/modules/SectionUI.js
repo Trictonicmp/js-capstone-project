@@ -1,5 +1,5 @@
 import { getShowsByPage, getLikes, addLikeTo, getQueriedShows } from "./API.js";
-import { getLikesOf } from "./Helpers.js";
+import { getLikesOf, getOnlyShows, getCount } from "./Helpers.js";
 import noImage from '../images/no-image.svg';
 
 const createCard = (show, likesCount) => {
@@ -25,7 +25,6 @@ const createLikeButton = (likesCount, showId) => {
   const likeIcon = document.createElement('i');
   likeIcon.classList.add("fa-solid");
   likeIcon.classList.add("fa-heart");
-  //likeIcon.classList.add("liked");
 
   likeButton.append(numberOfLikes);
   likeButton.append(likeIcon);
@@ -92,7 +91,7 @@ const displayShows = async (shows) => {
   const showsContainer = document.getElementById('shows-container');
   showsContainer.innerHTML = '';
   const likesList = await getLikes();
-  setItemsCount(shows.length);
+  setItemsCount(getCount(shows));
   for(let i = 0; i < shows.length; i += 1) {
     let likesCount = getLikesOf(shows[i].id, likesList);
     showsContainer.append(createCard(shows[i], likesCount));
@@ -114,15 +113,6 @@ const displayKids = async () => {
   const objectsArray = await getQueriedShows('kids', 30);
   const shows = getOnlyShows(objectsArray);
   displayShows(shows);
-}
-
-const getOnlyShows = (objectsArray) => {
-  const shows = [];
-  objectsArray.forEach((object) => {
-    shows.push(object.show);
-  })
-
-  return shows;
 }
 
 const setItemsCount = (count) => {
