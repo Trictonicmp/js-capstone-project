@@ -1,3 +1,5 @@
+import { describe, expect } from '@jest/globals';
+import { getCount } from '../src/modules/Helpers.js';
 import { commentCounter } from '../src/modules/UI.js';
 
 describe('Count the number of comments', () => {
@@ -11,5 +13,19 @@ describe('Count the number of comments', () => {
 
   test('Number od comments', () => {
     expect(commentCounter(commentsElements)).toBe((3));
+  });
+});
+
+
+describe('Cont the number of shows', () => {
+  const shows = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+  ];
+  test('Numer of items should be 5', () => {
+    expect(getCount(shows)).toBe(5);
   });
 });

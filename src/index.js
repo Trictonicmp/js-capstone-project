@@ -1,6 +1,6 @@
 import './style.css';
 import { ShowPopup, enableCloseDetailsPop } from './modules/UI.js';
-import displayShows from './modules/SectionUI.js';
+import { displayHome, displayAction, displayKids } from './modules/SectionUI.js';
 
 const showDetailsButton = document.querySelector('#showDetailsButton');
 
@@ -9,4 +9,15 @@ showDetailsButton.addEventListener('click', async () => {
   await enableCloseDetailsPop();
 });
 
-displayShows();
+window.onload = () => {
+  displayHome();
+  document.getElementById('nav-home').onclick = () => {
+    displayHome();
+  };
+  document.getElementById('nav-action').onclick = () => {
+    displayAction();
+  };
+  document.getElementById('nav-kids').onclick = () => {
+    displayKids();
+  };
+};

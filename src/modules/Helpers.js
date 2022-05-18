@@ -1,10 +1,23 @@
-const getLikedOf = (itemId, likesList) => {
+const getLikesOf = (itemId, likesList) => {
+  let numberOfLikes = 0;
   for (let i = 0; i < likesList.length; i += 1) {
     if (likesList[i].item_id === itemId) {
-      return likesList[i].likes;
+      numberOfLikes = likesList[i].likes;
+      break;
     }
   }
-  return 0;
+  return numberOfLikes;
 };
 
-export default getLikedOf;
+const getOnlyShows = (objectsArray) => {
+  const shows = [];
+  objectsArray.forEach((object) => {
+    shows.push(object.show);
+  });
+
+  return shows;
+};
+
+const getCount = (listOfElements) => listOfElements.length;
+
+export { getLikesOf, getOnlyShows, getCount };

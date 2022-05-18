@@ -28,19 +28,34 @@ const getMovieComments = async (id) => {
   return data;
 };
 
-const getShows = async (pageNumber, showsQuantity) => {
+const getShowsByPage = async (pageNumber, showsQuantity) => {
+  const returnShows = [];
   try {
     const response = await fetch(`https://api.tvmaze.com/shows?page=1${pageNumber}`);
     const shows = await response.json();
-    const returnShows = [];
     for (let i = 0; i < showsQuantity; i += 1) {
       returnShows.push(shows[i]);
     }
-    return returnShows;
   } catch (error) {
     console.log(error);
   }
-  return 0;
+  return returnShows;
+};
+
+const getQueriedShows = async (query, showsQuantity) => {
+  const returnShows = [];
+  try {
+    const response = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`);
+    const shows = await response.json();
+    showsQuantity = (shows.length < showsQuantity) ? shows.length : showsQuantity;
+    for (let i = 0; i < showsQuantity; i += 1) {
+      returnShows.push(shows[i]);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  return returnShows;
 };
 
 const getLikes = async () => {
@@ -65,5 +80,5 @@ const addLikeTo = async (itemId) => {
 };
 
 export {
-  getShows, getLikes, addLikeTo, getMovieById, newComment, getMovieComments,
+  getShowsByPage, getLikes, addLikeTo, getMovieById, newComment, getMovieComments, getQueriedShows,
 };
