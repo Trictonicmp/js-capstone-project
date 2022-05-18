@@ -91,10 +91,15 @@ const displayShows = async () => {
   const showsContainer = document.getElementById('shows-container');
   const likesList = await getLikes();
   const shows = await getShows(1, 30);
+  setItemsCount(shows.length);
   for(let i = 0; i < shows.length; i += 1) {
     let likesCount = getLikesOf(shows[i].id, likesList);
     showsContainer.append(createCard(shows[i], likesCount));
   }
+}
+
+const setItemsCount = (count) => {
+  document.getElementById('items-counter').innerText = count;
 }
 
 export { displayShows }
