@@ -1,7 +1,6 @@
 import { getShows } from "./API.js";
 
 const createCard = (show, likesCount) => {
-  console.log(show);
   const card = document.createElement('li');
   card.classList.add('show');
   card.append(createLikeButton(likesCount));
@@ -78,7 +77,7 @@ const createshowDetails = (show) => {
 
 const displayShows = async () => {
   const showsContainer = document.getElementById('shows-container');
-  const shows = await getShows(1, 9);
+  const shows = await getShows(1, 30);
   for(let i = 0; i < shows.length; i += 1) {
     showsContainer.append(createCard(shows[i], 3));
   }
