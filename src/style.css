@@ -147,12 +147,13 @@ main {
 }
 
 .show {
+  display: flex;
+  flex-wrap: wrap;
   outline: 3px solid #111;
   border-radius: 0.5em;
   max-width: 15em;
   overflow: hidden;
   background-color: #111;
-
   transition: outline 0.2s ease-in;
 }
 
@@ -207,6 +208,10 @@ main {
 
 .show-details {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: space-between;
   width: 100%;
   padding: 0.5em 1em;
   margin-top: -1.5em;

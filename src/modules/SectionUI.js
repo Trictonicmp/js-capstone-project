@@ -17,10 +17,16 @@ const createCard = (show, likesCount) => {
 const createLikeButton = (likesCount) => {
   const likeButton = document.createElement('button');
   likeButton.type = 'button';
+  likeButton.classList.add('like')
   const numberOfLikes = document.createElement('span');
   numberOfLikes.innerText = likesCount + ' likes';
   const likeIcon = document.createElement('i');
-  likeIcon.classList.add(["fa-solid", "fa-heart", "liked"]);
+  likeIcon.classList.add("fa-solid");
+  likeIcon.classList.add("fa-heart");
+  likeIcon.classList.add("liked");
+
+  likeButton.append(numberOfLikes);
+  likeButton.append(likeIcon);
 
   return likeButton;
 }
@@ -63,6 +69,7 @@ const createshowDetails = (show) => {
 
   const seeMoreBtn = document.createElement('button');
   seeMoreBtn.classList.add('see-more');
+  seeMoreBtn.type = 'button';
   seeMoreBtn.innerText = 'See more'
 
   showDetails.append(seeMoreBtn);
