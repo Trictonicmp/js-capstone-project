@@ -5,6 +5,19 @@ const modal = document.createElement('div');
 const main = document.querySelector('#main');
 let popupOpenFlag = false;
 
+/* const displayCommentCounter = async(arr) =>{
+    const reponse = arr;
+    const countCommentHeadline = document.querySelector('.list-comment-headline');
+    if(reponse.error){
+        countCommentHeadline.innerHTML=`Comment (0)`
+    }else{
+        const commentCounter = reponse.length;
+        countCommentHeadline.innerHTML=`Comment (${commentCounter})`;
+    }
+}
+ */
+const commentCounter = (arr) => arr.childElementCount;
+
 const CloseModal = () => {
   if (backgroundModal) {
     backgroundModal.remove();
@@ -27,6 +40,7 @@ const displayComments = async (id) => {
               `;
     });
   }
+  await commentCounter(reponse);
 };
 
 const ShowPopup = async (id) => {
@@ -66,7 +80,7 @@ const ShowPopup = async (id) => {
             </form>
         </div>
         <div class="comment-list">
-            <h2 class="list-comment-headline">Comments</h2>
+            <h2 class="list-comment-headline"></h2>
             <div class="comment-list-items">
             </div>
         </div>
@@ -80,14 +94,32 @@ const ShowPopup = async (id) => {
   backgroundModal.appendChild(modal);
   popupOpenFlag = true;
   await displayComments(id);
+
+  const commentCountHL = document.querySelector('.list-comment-headline');
+  const movieComments = await getMovieComments(id);
+  if (movieComments.error) {
+    commentCountHL.innerHTML = 'Comments (0)';
+  } else {
+    const commentDivs = document.querySelector('.comment-list-items');
+    const commentCount = commentCounter(commentDivs);
+    commentCountHL.innerHTML = `Comments (${commentCount})`;
+  }
   const formComment = document.querySelector('#form');
   formComment.addEventListener('submit', async (e) => {
     e.preventDefault();
     const userName = document.getElementById('userName').value;
     const comment = document.getElementById('commnent').value;
     await newComment(id, userName, comment);
+    const movieComments = await getMovieComments(id);
     formComment.reset();
     await displayComments(id);
+    if (movieComments.error) {
+      commentCountHL.innerHTML = 'Comments (0)';
+    } else {
+      const commentDivs = document.querySelector('.comment-list-items');
+      const commentCount = commentCounter(commentDivs);
+      commentCountHL.innerHTML = `Comments (${commentCount})`;
+    }
   });
 };
 
@@ -100,4 +132,6 @@ const enableCloseDetailsPop = () => {
   }
 };
 
-export { ShowPopup, CloseModal, enableCloseDetailsPop };
+export {
+  ShowPopup, CloseModal, enableCloseDetailsPop, commentCounter,
+};
