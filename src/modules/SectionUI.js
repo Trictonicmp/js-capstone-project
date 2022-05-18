@@ -45,7 +45,7 @@ const createLikeButton = (likesCount, showId) => {
 const createshowDetails = (show) => {
   const showDetails = document.createElement('div');
   showDetails.classList.add('show-details');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerText = show.name;
   showDetails.append(title);
   const genresList = document.createElement('ul');
