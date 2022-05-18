@@ -41,7 +41,6 @@
   padding-top: 80px;
 }
 
-
 .popup-close {
   height: 30px;
   width: 30px;
@@ -324,10 +323,10 @@
     flex-direction: column;
     align-items: center;
   }
-  .summary-headline {
-      font-size: 20px;
-  }
 
+  .summary-headline {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 490px) {
