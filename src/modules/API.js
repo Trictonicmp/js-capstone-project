@@ -21,4 +21,20 @@ const getLikes = async () => {
   return likesList;
 }
 
-export { getShows, getLikes };
+const addLikeTo = async (itemId) => {
+  try {
+    const response = await fetch(`${endPoint}/${APP_ID}/likes/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ "item_id": itemId }),
+    });
+    return true;
+  }
+  catch(error) {
+    return false;
+  }
+}
+
+export { getShows, getLikes, addLikeTo };
