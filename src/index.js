@@ -7,3 +7,6 @@ showDetailsButton.addEventListener('click', async () => {
   await ShowPopup(6);
   await enableCloseDetailsPop();
 });
+import { displayShows } from './modules/SectionUI.js';
+
+displayShows();
