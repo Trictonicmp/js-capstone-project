@@ -110,6 +110,7 @@ const ShowPopup = async (id) => {
     const userName = document.getElementById('userName').value;
     const comment = document.getElementById('commnent').value;
     await newComment(id, userName, comment);
+    const movieComments = await getMovieComments(id);
     formComment.reset();
     await displayComments(id);
     if (movieComments.error) {
