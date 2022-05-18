@@ -97,6 +97,13 @@ footer .logo-wrapper {
   justify-content: center;
 }
 
+.show img {
+  position: relative;
+  width: 100%;
+  min-width: 10em;
+  margin-top: -2.9em;
+}
+
 footer .logo-wrapper img {
   width: 100%;
   max-width: 7em;
@@ -109,6 +116,13 @@ footer .nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.show-details ul {
+  margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
 }
 
 footer .nav ul {
@@ -164,7 +178,6 @@ main {
 
 .show .like {
   position: relative;
-  display: flex;
   align-items: center;
   gap: 0.25em;
   width: 100%;
@@ -173,7 +186,7 @@ main {
   justify-content: end;
   margin: 0;
   background-color: transparent;
-  background-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%, rgba(0,0,0,0) 100%);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
   border: none;
   font-size: 1.8em;
   color: #fff;
@@ -188,6 +201,11 @@ main {
   transition: transform 0.1s ease-in;
 }
 
+.show-details .network-details i {
+  margin-right: 0.25em;
+  color: #fc0;
+}
+
 .show .like:hover i {
   transform: scale(1.2);
 }
@@ -198,13 +216,6 @@ main {
 
 .show .like span {
   font-size: 0.5em;
-}
-
-.show img {
-  position: relative;
-  width: 100%;
-  min-width: 10em;
-  margin-top: -2.9em;
 }
 
 .show-details {
@@ -226,13 +237,6 @@ main {
   font-size: 1.5em;
 }
 
-.show-details ul {
-  margin-top: 0.5em;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25em;
-}
-
 .show-details ul li {
   font-size: 0.75em;
   padding: 0.2em 0.5em;
@@ -246,11 +250,6 @@ main {
   display: flex;
   justify-content: end;
   gap: 1.2em;
-}
-
-.show-details .network-details i {
-  margin-right: 0.25em;
-  color: #fc0;
 }
 
 .show-details .see-more {
@@ -270,7 +269,6 @@ main {
   cursor: pointer;
   background-color: #222;
 }
-
 
 .show-details .see-more:active {
   background-color: #fc0;
