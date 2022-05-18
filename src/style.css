@@ -195,6 +195,7 @@ main .items-counter span {
 }
 
 .show .like {
+  display: flex;
   position: relative;
   align-items: center;
   gap: 0.25em;
