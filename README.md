@@ -1,62 +1,70 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# JavaScript Capstone Project
 
-> Description the project.
+> Book tv app to keep track of tv shows, like a show and comment about them!
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML, CSS, JS
+- Frameworks: N/A
+- Technologies: Webpack, ES6, Jest, Fontawesome
 
-## Live Demo (if available)
+## Screenshots
+![mockup responsivo copia](https://user-images.githubusercontent.com/11634112/169335260-0a800888-8ec9-47c6-bbd1-460249d8e60f.png)
 
-[Live Demo Link](https://livedemo.com)
+
+## Live Demo 
+
+[Live Demo Link here!](https://trictonicmp.github.io/js-capstone-project/dist/)
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+* node package manager – to be able to install packages locally.
+* A github Account – to be able to use github actions.
+
+
 ### Setup
+* Open the terminal
+* Run ```cd \path\to\where\you\want\your\local\copy```
+* Clone the repo
+  * Run ```git clone https://github.com/Trictonicmp/js-capstone-project.git```
+  * Run ```cd js-capstone-project```
+* Install dependencies  
+  * Run ```npm install```
 
-### Install
+### Build
+Run ```npm run build```
 
-### Usage
-
-### Run tests
-
-### Deployment
 
 
 
 ## Authors
 
-👤 **Author1**
+👤 **jrosario19**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@jrosario19](https://github.com/jrosario19)
+- Twitter: [@jrosario19](https://twitter.com/jrosario19)
+- LinkedIn: [Juan Fco. Rosario](https://linkedin.com/in/juan-francisco-rosario-suli-44595051)
 
-👤 **Author2**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Amaury Permer**
+
+- GitHub: [@Trictonicmp](https://github.com/Trictonicmp)
+- Twitter: [@AmauryPermer](https://twitter.com/AmauryPermer)
+- LinkedIn: [amaury-permer](https://www.linkedin.com/in/amaury-permer/)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Trictonicmp/js-capstone-project).
 
 ## Show your support
 
@@ -64,9 +72,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- TV Amaze API to retrieve shows data
+  - More information [Here](https://www.tvmaze.com/api)
+- Involvement API to store and retireve likes and comments
+  - More information [Here](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270)
 
 ## 📝 License
 
