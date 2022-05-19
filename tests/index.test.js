@@ -1,6 +1,4 @@
-import { describe, expect } from '@jest/globals';
-import { getCount } from '../src/modules/Helpers.js';
-import { commentCounter } from '../src/modules/UI.js';
+import {getCount, commentCounter}  from '../src/modules/Helpers.js';
 
 describe('Count the number of comments', () => {
   const commentDiv = ` <div class="comment-list-items">

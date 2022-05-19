@@ -1,23 +1,11 @@
 import { getMovieById, newComment, getMovieComments } from './API.js';
+import { commentCounter } from './Helpers.js';
 import noImage from '../images/no-image.svg';
 
 const backgroundModal = document.createElement('div');
 const modal = document.createElement('div');
 const main = document.querySelector('#main');
 let popupOpenFlag = false;
-
-/* const displayCommentCounter = async(arr) =>{
-    const reponse = arr;
-    const countCommentHeadline = document.querySelector('.list-comment-headline');
-    if(reponse.error){
-        countCommentHeadline.innerHTML=`Comment (0)`
-    }else{
-        const commentCounter = reponse.length;
-        countCommentHeadline.innerHTML=`Comment (${commentCounter})`;
-    }
-}
- */
-const commentCounter = (arr) => arr.childElementCount;
 
 const CloseModal = () => {
   if (backgroundModal) {

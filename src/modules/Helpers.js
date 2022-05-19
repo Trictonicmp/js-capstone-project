@@ -19,5 +19,6 @@ const getOnlyShows = (objectsArray) => {
 };
 
 const getCount = (listOfElements) => listOfElements.length;
+const commentCounter = (arr) => arr.childElementCount;
 
-export { getLikesOf, getOnlyShows, getCount };
+export { getLikesOf, getOnlyShows, getCount, commentCounter };
