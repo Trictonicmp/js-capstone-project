@@ -9,7 +9,8 @@
     "watch": "set NODE_OPTIONS='--experimental-vm-modules' && jest --watchAll",
     "clear_jest": "jest --clearCache",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "jest": {
     "verbose": true,
@@ -23,15 +24,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrosario19/webpack.git"
+    "url": "git+https://github.com/Trictonicmp/js-capstone-project.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jrosario19/webpack/issues"
+    "url": "https://github.com/Trictonicmp/js-capstone-project/issues"
   },
-  "homepage": "https://github.com/jrosario19/webpack#readme",
+  "homepage": "https://github.com/Trictonicmp/js-capstone-project",
   "devDependencies": {
     "@jest/globals": "^28.0.3",
     "babel-eslint": "^10.1.0",
@@ -40,6 +41,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0",
     "hint": "^6.1.11",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
