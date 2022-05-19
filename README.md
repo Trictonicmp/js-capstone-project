@@ -11,9 +11,13 @@
 - Frameworks: N/A
 - Technologies: Webpack, ES6, Jest, Fontawesome
 
+## Screenshots
+![mockup responsivo copia](https://user-images.githubusercontent.com/11634112/169335260-0a800888-8ec9-47c6-bbd1-460249d8e60f.png)
+
+
 ## Live Demo 
 
-[Live Demo Link here!](https://livedemo.com)
+[Live Demo Link here!](https://trictonicmp.github.io/js-capstone-project/dist/)
 
 
 ## Getting Started
