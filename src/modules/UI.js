@@ -1,9 +1,11 @@
 import { getMovieById, newComment, getMovieComments } from './API.js';
+import noImage from '../images/no-image.svg';
 
 const backgroundModal = document.createElement('div');
 const modal = document.createElement('div');
 const main = document.querySelector('#main');
 let popupOpenFlag = false;
+
 
 /* const displayCommentCounter = async(arr) =>{
     const reponse = arr;
@@ -32,12 +34,11 @@ const displayComments = async (id) => {
   const commentListDiv = document.querySelector('.comment-list-items');
   commentListDiv.innerHTML = '';
   if (reponse.error) {
-    commentListDiv.innerHTML = 'Be the first to comment';
+    commentListDiv.innerHTML = '<span class="no-comments">There are no comments yet! <br>Be the first to comment<span>';
   } else {
     reponse.forEach((element) => {
       commentListDiv.innerHTML += `
-              <div><span>${element.creation_date}</span><span> ${element.username}: ${element.comment}</span></div>
-              `;
+              <div class="user-comment"><span>${element.username}</span><span>on ${element.creation_date}</span><p> ${element.comment}</p></div>`;
     });
   }
   await commentCounter(reponse);
@@ -45,47 +46,47 @@ const displayComments = async (id) => {
 
 const ShowPopup = async (id) => {
   const movie = await getMovieById(id);
+  const image = movie.image? movie.image.original : noImage;
   modal.classList.add('modal-container');
+  console.log(movie.summary)
   modal.innerHTML = `
-  <article class="modal">
+  <article class="modal modal-fade">
     <div class="popup-close" id="closeDetailsPop">
-    <i class="fa-solid fa-xmark"></i>
+      <i class="fa-solid fa-xmark"></i>
     </div>
     <div class="popup-image-description">
-        <div class="popup-img">
-        <img class="movie-image" src="${movie.image.medium}" alt="">
-        </div>
-        <div class="popup-details">
-            <div class="summary">
-            <h2 class="summary-headline">${movie.name}</h2>
+      <img class="movie-image" src="${image}" alt="${movie.name}">
+      <div class="popup-details">
+        <div class="summary">    
+          <h2 class="summary-headline">${movie.name}</h2>
+          <div class="summary-container">
             <p>${movie.summary}</p>
+          </div>
+          <div class="movie-metadata">
+            <div class="metadata-row">
+              <span class="metadata-item"><i class="fa-solid fa-language"></i> ${movie.language}</span> <span class="metadata-item"><i class="fa-solid fa-stopwatch"></i> ${movie.averageRuntime} Minutes</span>
             </div>
-            <div class="movie-metadata">
-                <div class="language-daration">
-                <span class="language">Language: ${movie.language}</span> <span class="runtime">Runtime: ${movie.averageRuntime} Minutes</span>
-                </div>
-                <div class="rating-premiered">
-                <span class="rating">Rating: ${movie.rating.average}</span> <span class="premiered">Premiered: ${movie.premiered}</span>
-                </div>
+            <div class="metadata-row">
+              <span class="metadata-item"><i class="fa-solid fa-star"></i> ${movie.rating.average}</span> <span class="metadata-item"><i class="fa-solid fa-calendar-days"></i> ${movie.premiered}</span>
             </div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="comments">
-        <div class="comment-form">
-            <h2 class="comment-form-headline">Add a Comment</h2>
-            <form id="form" class="form">
-                <input type="text" required class="input-name" id="userName" placeholder="Your Name">
-                <textarea name="commnet" required id="commnent" class="input-comment" placeholder="Your insights"></textarea>
-                <button type="submit" class="comment-button">Comment</button>
-            </form>
+      <div class="comment-form">
+        <h2 class="comment-form-headline">Add a Comment</h2>
+        <form id="form" class="form">
+          <input type="text" required class="input-name" id="userName" placeholder="Your Name">
+          <textarea name="commnet" required id="commnent" class="input-comment" placeholder="Your insights"></textarea>
+          <button type="submit" class="comment-button">Comment</button>
+        </form>
+      </div>
+      <div class="comment-list">
+        <h2 class="list-comment-headline"></h2>
+        <div class="comment-list-items">
         </div>
-        <div class="comment-list">
-            <h2 class="list-comment-headline"></h2>
-            <div class="comment-list-items">
-            </div>
-        </div>
-        
-        
+      </div>
     </div>
   </article>
   `;
