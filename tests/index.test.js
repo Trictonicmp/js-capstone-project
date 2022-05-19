@@ -16,7 +16,6 @@ describe('Count the number of comments', () => {
   });
 });
 
-
 describe('Cont the number of shows', () => {
   const shows = [
     { id: 1 },

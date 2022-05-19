@@ -76,7 +76,7 @@ const createshowDetails = (show) => {
   seeMoreBtn.onclick = async () => {
     await ShowPopup(show.id);
     await enableCloseDetailsPop();
-  }
+  };
 
   showDetails.append(seeMoreBtn);
   return showDetails;

@@ -77,7 +77,6 @@
   flex-direction: column;
 }
 
-
 .summary-headline {
   font-size: 35px;
   font-weight: bold;
@@ -108,13 +107,13 @@
   color: white;
 }
 
-.metadata-item:hover i {
-  color: #fc0;
-}
-
 .metadata-item i {
   color: rgba(255, 204, 0, 0.5);
   font-size: 1.3em;
+}
+
+.metadata-item:hover i {
+  color: #fc0;
 }
 
 .movie-metadata {
@@ -174,7 +173,7 @@
 
 .input-comment {
   min-height: 5em;
-  font-family:  'source sans pro', sans-serif;
+  font-family: 'source sans pro', sans-serif;
   font-size: 0.9em;
   padding: 0.7em;
   border-radius: 0.3em;

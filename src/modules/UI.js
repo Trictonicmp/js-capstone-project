@@ -6,7 +6,6 @@ const modal = document.createElement('div');
 const main = document.querySelector('#main');
 let popupOpenFlag = false;
 
-
 /* const displayCommentCounter = async(arr) =>{
     const reponse = arr;
     const countCommentHeadline = document.querySelector('.list-comment-headline');
@@ -46,9 +45,9 @@ const displayComments = async (id) => {
 
 const ShowPopup = async (id) => {
   const movie = await getMovieById(id);
-  const image = movie.image? movie.image.original : noImage;
+  const image = movie.image ? movie.image.original : noImage;
   modal.classList.add('modal-container');
-  console.log(movie.summary)
+  console.log(movie.summary);
   modal.innerHTML = `
   <article class="modal modal-fade">
     <div class="popup-close" id="closeDetailsPop">
