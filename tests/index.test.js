@@ -1,4 +1,4 @@
-import {getCount, commentCounter}  from '../src/modules/Helpers.js';
+import { getCount, commentCounter } from '../src/modules/Helpers.js';
 
 describe('Count the number of comments', () => {
   const commentDiv = ` <div class="comment-list-items">
