@@ -72,7 +72,6 @@
 .popup-details {
   flex-grow: 1;
   flex-shrink: 1;
-  height: 200px;
   flex-basis: 20em;
   display: flex;
   flex-direction: column;
