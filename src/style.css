@@ -301,4 +301,5 @@ main .items-counter span {
 
 .no-scroll {
   position: fixed;
+  width: 100%;
 }
