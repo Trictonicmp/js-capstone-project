@@ -298,3 +298,7 @@ main .items-counter span {
   animation-duration: 0.3s;
   animation-timing-function: ease-in, ease-out;
 }
+
+.no-scroll {
+  position: fixed;
+}

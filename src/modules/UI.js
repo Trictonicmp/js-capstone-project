@@ -1,5 +1,5 @@
 import { getMovieById, newComment, getMovieComments } from './API.js';
-import { commentCounter } from './Helpers.js';
+import { addBodyScroll, commentCounter, removeBodyScroll } from './Helpers.js';
 import noImage from '../images/no-image.svg';
 
 const backgroundModal = document.createElement('div');
@@ -32,6 +32,7 @@ const displayComments = async (id) => {
 };
 
 const ShowPopup = async (id) => {
+  removeBodyScroll();
   const movie = await getMovieById(id);
   const image = movie.image ? movie.image.original : noImage;
   modal.classList.add('modal-container');
@@ -116,6 +117,7 @@ const enableCloseDetailsPop = () => {
     const closeDetailsPop = document.querySelector('#closeDetailsPop');
     closeDetailsPop.addEventListener('click', () => {
       CloseModal();
+      addBodyScroll();
     });
   }
 };
