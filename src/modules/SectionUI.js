@@ -1,19 +1,19 @@
 import {
-  getShowsByPage, 
-  getLikes, 
-  addLikeTo, 
+  getShowsByPage,
+  getLikes,
+  addLikeTo,
   getQueriedShows,
 } from './API.js';
 
-import { 
-  getLikesOf, 
-  getOnlyShows, 
+import {
+  getLikesOf,
+  getOnlyShows,
   getCount,
 } from './Helpers.js';
 
-import { 
-  ShowPopup, 
-  enableCloseDetailsPop 
+import {
+  ShowPopup,
+  enableCloseDetailsPop,
 } from './UI.js';
 
 import noImage from '../images/no-image.svg';
