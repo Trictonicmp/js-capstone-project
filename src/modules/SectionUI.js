@@ -1,9 +1,22 @@
 import {
-  getShowsByPage, getLikes, addLikeTo, getQueriedShows,
+  getShowsByPage, 
+  getLikes, 
+  addLikeTo, 
+  getQueriedShows,
 } from './API.js';
-import { getLikesOf, getOnlyShows, getCount } from './Helpers.js';
+
+import { 
+  getLikesOf, 
+  getOnlyShows, 
+  getCount,
+} from './Helpers.js';
+
+import { 
+  ShowPopup, 
+  enableCloseDetailsPop 
+} from './UI.js';
+
 import noImage from '../images/no-image.svg';
-import { ShowPopup, enableCloseDetailsPop } from './UI.js';
 
 const createLikeButton = (likesCount, showId) => {
   likesCount = parseInt(likesCount, 10) ? likesCount : 0;
