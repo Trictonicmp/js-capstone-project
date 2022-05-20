@@ -11,19 +11,18 @@
     <title>Wbpack Exercise</title>
 <script defer src="main.js"></script></head>
 <body>      
-    <button type="button" id="showDetailsButton">Show Detail Popup</button>   
     <header>
         <a href="#" class="header-logo"><img src="images/377387c675672d042f7e.svg" alt="book.tv"></a> 
         <nav>
             <ul>
-                <li><a href="#"><i class="fa-solid fa-tv"></i> Tv Shows</a></li>
-                <li><a href="#"><i class="fa-solid fa-explosion"></i> Action</a></li>
-                <li><a href="#"><i class="fa-solid fa-face-grin-squint-tears"></i> Kids</a></li>
+                <li><a href="#" id="nav-home"><i class="fa-solid fa-tv"></i> Tv Shows</a></li>
+                <li><a href="#" id="nav-action"><i class="fa-solid fa-explosion"></i> Action</a></li>
+                <li><a href="#" id="nav-kids"><i class="fa-solid fa-face-grin-squint-tears"></i> Kids</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <h2 class="items-counter">Items displayed: <span id="items-counter"></span></h2>
         <ul class="shows-container" id="shows-container">
         </ul>
