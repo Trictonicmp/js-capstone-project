@@ -29,13 +29,11 @@ const getMovieComments = async (id) => {
 };
 
 const getShowsByPage = async (pageNumber, showsQuantity) => {
-  const returnShows = [];
+  let returnShows = [];
   try {
     const response = await fetch(`https://api.tvmaze.com/shows?page=1${pageNumber}`);
     const shows = await response.json();
-    for (let i = 0; i < showsQuantity; i += 1) {
-      returnShows.push(shows[i]);
-    }
+    returnShows = shows.splice(0, showsQuantity);
   } catch (error) {
     console.log(error);
   }
@@ -43,14 +41,12 @@ const getShowsByPage = async (pageNumber, showsQuantity) => {
 };
 
 const getQueriedShows = async (query, showsQuantity) => {
-  const returnShows = [];
+  let returnShows = [];
   try {
     const response = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`);
     const shows = await response.json();
     showsQuantity = (shows.length < showsQuantity) ? shows.length : showsQuantity;
-    for (let i = 0; i < showsQuantity; i += 1) {
-      returnShows.push(shows[i]);
-    }
+    returnShows = shows.splice(0, showsQuantity);
   } catch (error) {
     console.log(error);
   }
