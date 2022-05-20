@@ -17,7 +17,7 @@
 
 ## Live Demo 
 
-[Live Demo Link here!](https://trictonicmp.github.io/js-capstone-project/dist/)
+[Live Demo Link here!](https://trictonicmp.github.io/js-capstone-project/)
 
 
 ## Getting Started
